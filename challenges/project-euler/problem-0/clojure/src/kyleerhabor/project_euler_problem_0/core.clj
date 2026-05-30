@@ -1,4 +1,4 @@
-(ns kyleerhabor.project-euler-problem-zero.core)
+(ns kyleerhabor.project-euler-problem-0.core)
 
 (defn square [x]
   (* x x))
