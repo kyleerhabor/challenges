@@ -40,7 +40,6 @@ struct Solution;
 
 impl Solution {
     pub fn most_popular_creator(creators: Vec<String>, ids: Vec<String>, views: Vec<i32>) -> Vec<Vec<String>> {
-        // let mut heap = BinaryHeap::<Video>::with_capacity(creators.capacity());
         let mut firstpass = HashMap::<String, Creator>::with_capacity(creators.len());
 
         for (creator, (id, views)) in creators.iter().zip(ids.iter().zip(views.iter())) {
