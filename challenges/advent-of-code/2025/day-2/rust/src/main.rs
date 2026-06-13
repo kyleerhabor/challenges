@@ -20,8 +20,8 @@ fn divides(a: u32, b: u32) -> bool {
     b % a == 0
 }
 
-fn shift(n: u64, count: u32, width: u32) -> u64 {
-    n / 10u64.pow(count) % 10u64.pow(width)
+fn shift(n: u64, count: u64, width: u64) -> u64 {
+    n / count % width
 }
 
 trait AllEqual: Iterator {
@@ -80,7 +80,7 @@ fn day1(content: &str) -> String {
 
 fn day2(content: &str) -> String {
     let product_id_ranges = parse_product_id_ranges(content);
-    // I'm shocked that this worked on the first try. It's not fast, but it's nicer than performing string processing.
+    // I'm shocked that this worked on the first try.
     let invalid_id_sum = product_id_ranges
         .map(|range| {
             range
@@ -95,9 +95,11 @@ fn day2(content: &str) -> String {
                     let satisfies = (1..=end) // 1, 2, 3, 4
                         .filter(|&count| divides(count, digit_count)) // 1, 3
                         .any(|count| {
+                            // We could probably make this more efficient by computing the powers in filter_map.
                             let width = digit_count / count; // 9, 3
+                            let width10 = 10u64.pow(width);
                             let result = (0..width) // [0, 1, 2, 3, 4, 5, 6, 7, 8], [0, 1, 2]
-                                .map(|i| shift(n, i * count, count)) // [8, 2, 4, 8, 2, 4, 8, 2, 4], [824, 824, 824]
+                                .map(|i| shift(n, 10u64.pow(i * count), width10)) // [8, 2, 4, 8, 2, 4, 8, 2, 4], [824, 824, 824]
                                 .all_equal(); // false, true
 
                             result
