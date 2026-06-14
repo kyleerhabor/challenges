@@ -32,8 +32,6 @@ fun day1(input: String): String {
                 joltage
             }
 
-            println("bank = ${bank.joinToString(separator = "")}, joltage = ${joltage.value}")
-
             joltage
         }
         .sumOf { it.value }
