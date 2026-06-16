@@ -21,7 +21,7 @@ fun countPaperRoll(point: Boolean?): Int = if (point ?: false) {
     0
 }
 
-fun day1(input: String): String {
+fun part1(input: String): String {
     val rows = input
         .trimEnd()
         .lines()
@@ -66,7 +66,7 @@ data class Grid(val rows: List<List<Boolean>>, val removalCount: Int)
 data class GridRow(val row: List<Boolean>, val removalCount: Int)
 data class GridPoint(val point: Boolean, val isRemoved: Boolean)
 
-fun day2(input: String): String {
+fun part2(input: String): String {
     var grid = Grid(
         rows = input
             .trimEnd()
@@ -146,8 +146,8 @@ class Cli : CliktCommand() {
 
     override fun run() {
         val input = this.input.readText()
-        println("Day 1: ${day1(input = input)}")
-        println("Day 2: ${day2(input = input)}")
+        println("Part 1: ${part1(input = input)}")
+        println("Part 2: ${part2(input = input)}")
     }
 }
 
