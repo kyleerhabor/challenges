@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": ["${input:inputFile}"],
+      "cwd": "${workspaceFolder:swift}",
+      "name": "Debug swift",
+      "target": "swift",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug swift",
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:swift}",
+      "name": "Release swift",
+      "target": "swift",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release swift",
+    },
+  ],
+  "inputs": [
+    {
+      "id": "inputFile",
+      "type": "promptString",
+      "description": "Enter the input file",
+    },
+  ],
+}
