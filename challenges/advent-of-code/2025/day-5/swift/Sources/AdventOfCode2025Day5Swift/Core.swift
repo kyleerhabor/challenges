@@ -13,10 +13,11 @@ struct Database {
 }
 
 @main
-struct swift: ParsableCommand {
+struct AdventOfCode2025Day5Swift: ParsableCommand {
     @Argument(transform: URL.init(fileURLWithPath:)) private var inputFile: URL
 
     func parse(input: String) -> Database {
+        
         let database = input
             .split(omittingEmptySubsequences: false, whereSeparator: \.isNewline)
             .dropLast()
