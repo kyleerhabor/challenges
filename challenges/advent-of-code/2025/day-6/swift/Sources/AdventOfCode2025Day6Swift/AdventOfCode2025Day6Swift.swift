@@ -85,13 +85,6 @@ struct AdventOfCode2025Day6Swift: ParsableCommand {
             .map { String($0) }
             .transpose()
             .split(separator: [" ", " ", " ", " "])
-            // .map { column in
-                // column
-                //     .filter { !$0.isWhitespace }
-                //     .map { $0.wholeNumberValue! }
-                //     .reduce(0) { $0 * 10 + $1 }
-            // }
-            // .filter { $0 != 0 }
         
         let operators = symbols
             .last!
