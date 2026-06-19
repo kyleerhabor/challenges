@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": ["${input:inputFile}"],
+      "cwd": "${workspaceFolder:swift}",
+      "name": "Debug AdventOfCode2025Day7Swift",
+      "target": "AdventOfCode2025Day7Swift",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug AdventOfCode2025Day7Swift"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": ["${input:inputFile}"],
+      "cwd": "${workspaceFolder:swift}",
+      "name": "Release AdventOfCode2025Day7Swift",
+      "target": "AdventOfCode2025Day7Swift",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release AdventOfCode2025Day7Swift"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "inputFile",
+      "type": "promptString",
+      "description": "Enter the input file",
+    },
+  ],
+}
